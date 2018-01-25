@@ -1,0 +1,18 @@
+ctrl + c ->black screen
+sudo /opt/lampp/lampp start
+composer global require "laravel/installer=~1.1"
+export PATH="~/.config/composer/vendor/bin:$PATH"
+laravel new testapp
+sudo chmod 777 -R bootstrap/
+php artisan key:generate
+
+
+php artisan key:generate
+
+sudo /etc/init.d/apache2 stop
+php artisan serve
+cd /opt/lampp/htdocs/blog/
+ sudo /opt/lampp/lampp restart
+sudo apt-get install php<version>-mbstring
+composer create-project --prefer-dist laravel/laravel project -For creating folder in htdoc
+ 
