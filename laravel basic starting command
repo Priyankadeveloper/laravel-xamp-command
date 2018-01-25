@@ -1,4 +1,6 @@
 ctrl + c ->black screen
+
+youva@youva:/opt/lampp/htdocs/blog$ ls(showing no of foldwers)
 sudo /opt/lampp/lampp start
 composer global require "laravel/installer=~1.1"
 export PATH="~/.config/composer/vendor/bin:$PATH"
