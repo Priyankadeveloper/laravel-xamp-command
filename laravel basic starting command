@@ -6,6 +6,12 @@ export PATH="~/.config/composer/vendor/bin:$PATH"
 laravel new testapp
 sudo chmod 777 -R bootstrap/
 php artisan key:generate
+---------------------
+For creating new port
+---------------------
+php artisan serve --port="8888"
+youva@youva:/opt/lampp/htdocs/Projectsec$ php artisan serve --port="8888"
+
 
 
 sudo /etc/init.d/apache2 stop
