@@ -7,7 +7,7 @@ laravel new testapp
 sudo chmod 777 -R bootstrap/
 php artisan key:generate
 ---------------------
-For creating new port
+For creating new port if any port used to another
 ---------------------
 php artisan serve --port="8888"
 youva@youva:/opt/lampp/htdocs/Projectsec$ php artisan serve --port="8888"
