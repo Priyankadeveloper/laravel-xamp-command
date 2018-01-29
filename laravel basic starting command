@@ -1,5 +1,4 @@
 ctrl + c ->black screen
-
 youva@youva:/opt/lampp/htdocs/blog$ ls(showing no of foldwers)
 sudo /opt/lampp/lampp start
 composer global require "laravel/installer=~1.1"
@@ -9,12 +8,49 @@ sudo chmod 777 -R bootstrap/
 php artisan key:generate
 
 
-php artisan key:generate
-
 sudo /etc/init.d/apache2 stop
 php artisan serve
 cd /opt/lampp/htdocs/blog/
  sudo /opt/lampp/lampp restart
-sudo apt-get install php<version>-mbstring
-composer create-project --prefer-dist laravel/laravel project -For creating folder in htdoc
+--------------------------------------
+create new Project step by step process
+--------------------------------------
+sudo /opt/lampp/lampp start
+
+cd /opt/lampp/htdocs
+
+composer global require "laravel/installer=~1.1"
+
+youva@youva:/opt/lampp/htdocs$ export PATH="~/.config/composer/vendor/bin:$PATH"
+
+youva@youva:/opt/lampp/htdocs$ composer create-project laravel/laravel Projectsec
+youva@youva:/opt/lampp/htdocs/Projectsec$ cp .env.example .env
+youva@youva:/opt/lampp/htdocs/Projectsec$ vi .env
+
+(ctrl + z) for removing cmd 
+
+php artisan key:generate
+
+sudo chmod 777 -R bootstrap/
+
+php artisan serve
+
+   For creating tables
+   --------------------
+   ctrl+h in root folder open .env file & set host,user & psw info  
+php artisan make:auth
+php artisan migrate
+(if show any error like->Parse error: syntax error, unexpected 'use' (T_USE), expecting ',' or ';'  
+)
+goto->Project->app->providers->Appserviceprovider.php(put this use Illuminate\Support\Facades\Schema;
+
+use Illuminate\Support\ServiceProvider;
+
+ public function boot()
+    {
+        //
+        Schema::defaultStringLength(191);
+    }
+
+)
  
