@@ -59,4 +59,9 @@ use Illuminate\Support\ServiceProvider;
     }
 
 )
+
+-------------------
+.env file changes in (set log inplace of smtp for reset the password)
+                                                  ------------------        
+-------------------
  
