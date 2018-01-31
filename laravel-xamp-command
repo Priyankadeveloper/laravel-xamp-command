@@ -1,11 +1,19 @@
-sudo /opt/lampp/lampp start
+if occured any problem in php version used this
+sudo apt-get install php5-cli
+sudo php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+sudo php composer-setup.php
+You can add a ppa with PHP7:
+sudo apt-add-repository ppa:ondrej/php
+sudo apt-get update
+sudo apt-get install php7.0
 
+
+------------------------------
+sudo /opt/lampp/lampp start
 
 sudo /opt/lampp/lampp stop
 
-
 sudo /opt/lampp/lampp restart
-
 
 sudo chmod 777 -R /opt/lampp/htdocs
 
@@ -21,3 +29,4 @@ sudo service nginx start
 sudo service nginx stop
 sudo service nginx restart
 # service proftpd stop
+------------------------------
