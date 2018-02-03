@@ -30,3 +30,6 @@ sudo service nginx stop
 sudo service nginx restart
 # service proftpd stop
 ------------------------------
+html installing cmd
+-----------------------
+composer require "laravelcollective/html":"^5.4.0"
