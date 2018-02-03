@@ -33,3 +33,4 @@ sudo service nginx restart
 html installing cmd
 -----------------------
 composer require "laravelcollective/html":"^5.4.0"
+https://laravelcollective.com/docs/5.4/html
