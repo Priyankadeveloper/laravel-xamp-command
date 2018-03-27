@@ -32,5 +32,9 @@ sudo service nginx restart
 ------------------------------
 html installing cmd
 -----------------------
+when open a new project
+laravel path cd projectname\
+laravel path cd ../newproject/
+------------------------
 composer require "laravelcollective/html":"^5.4.0"
 https://laravelcollective.com/docs/5.4/html
