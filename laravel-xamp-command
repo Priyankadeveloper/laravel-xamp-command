@@ -6,6 +6,9 @@ You can add a ppa with PHP7:
 sudo apt-add-repository ppa:ondrej/php
 sudo apt-get update
 sudo apt-get install php7.0
+---------------------------------
+file permission 
+sudo chmod 777 -R /opt/lampp/htdocs/Deprixa_Prol/
 
 
 ------------------------------
