@@ -71,4 +71,9 @@ use Illuminate\Support\ServiceProvider;
 .env file changes in (set log inplace of smtp for reset the password)
                                                   ------------------        
 -------------------
+3.Now connect your pendrive to the computer and type the command the command"format x:" 
+where x is the location of  the device and press enter.
+ 6.If you want to make a quick format then type the command "format /q x:" where q in the command line stands for quick format while x is the pendrive location.once you press the enter key the process initialises and it will prompt you to assign a label to the pendrive.You can either assign a label or simple press enter.
+------------------------------------
+
  
