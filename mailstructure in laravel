@@ -58,3 +58,14 @@ public function Manuallymailshow(){
     return redirect()->back();
  
 }  
+--------------------------------------
+mail template
+----------------------
+ @extends('email.base_headernew')
+@section('email-body')
+<div style="margin: 10px 40px; text-align: center">
+<div style="padding:20px 0; font-size: 40px; font-family: Helvetica; color:#444">
+{{$message1}}
+</div></div>
+@endsection
+----------------------------
