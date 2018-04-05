@@ -1,3 +1,31 @@
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+use App\models\Restaurant;
+use App\models\Order;
+use App\models\RestaurantContact;
+use App\models\ProductCategory;
+use App\models\Product;
+use App\models\RestaurantDeliveryArea;
+use App\models\RestaurantTiming;
+use App\models\ZipCode;
+use App\User;
+use View;
+use Input;
+use Validator;
+use Session;
+use Redirect;
+use Html;
+use Form;
+use Response;
+use DB;
+use Carbon\Carbon;
+use App\Helpers\Envato\MailHelper;
+use Illuminate\Support\Facades\Hash;
+
+
+
+
+
 public function Manuallymailsend(){
     $pagetitle = "Manually Mail Send";
     return View::make('pages.restaurant.mailsend')
