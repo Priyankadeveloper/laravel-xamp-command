@@ -1,0 +1,32 @@
+public function Manuallymailsend(){
+    $pagetitle = "Manually Mail Send";
+    return View::make('pages.restaurant.mailsend')
+    ->with('pagetitle',$pagetitle);
+    $mail = MailHelper::sendMailNotification($template_name,$data,$email,$title); 
+
+}  
+
+public function Manuallymailshow(){
+    
+    $rules = array(
+           'email'  =>'required', 
+           'subject' =>'required',
+          );
+    $validator = Validator::make(Input::all(),$rules);
+    if($validator->fails()){      
+      return Redirect::to('restaurant')
+      ->withErrors($validator);
+    }
+
+    $msg = Input::get("message");
+    $email =Input::get("email");
+    $template_name ="email.mailsend";
+    $data = array(
+       'message1'  => $msg
+    );
+    $title =Input::get("subject");
+
+    $mail = MailHelper::sendMailNotification($template_name,$data,$email,$title); 
+    return redirect()->back();
+ 
+}  
