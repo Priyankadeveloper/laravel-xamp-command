@@ -23,7 +23,8 @@ use App\Helpers\Envato\MailHelper;
 use Illuminate\Support\Facades\Hash;
 
 
-
+class controllername  extends Controller
+{
 
 
 public function Manuallymailsend(){
@@ -58,6 +59,7 @@ public function Manuallymailshow(){
     return redirect()->back();
  
 }  
+}
 --------------------------------------
 mail template
 ----------------------
@@ -69,3 +71,7 @@ mail template
 </div></div>
 @endsection
 ----------------------------
+route
+------------
+ Route::get('/Mail', 'Controllername@Manuallymailsend');
+ Route::post('/Mail', 'Controllername@Manuallymailshow');
