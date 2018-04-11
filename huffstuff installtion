@@ -1,0 +1,15 @@
+https://app.hubstaff.com/download
+https://support.hubstaff.com/install-and-sign-in-into-linux-desktop-client/
+
+
+Copy it to your home folder.
+
+Run these two commands.
+
+chmod +x Hubstaff-1.2.1-79428cc.sh
+./Hubstaff-1.2.1-79428cc.sh
+
+for example if hubstuff download in download folder use the come
+cd Downloads
+chmod +x Hubstaff-1.3.1-ff75f26.sh
+./Hubstaff-1.3.1-ff75f26.sh
