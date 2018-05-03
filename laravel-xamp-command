@@ -41,3 +41,8 @@ laravel path cd ../newproject/
 ------------------------
 composer require "laravelcollective/html":"^5.4.0"
 https://laravelcollective.com/docs/5.4/html
+----------------
+terminal cmd
+------------
+ 'currency_code' => empty($currency) ? "" : ($currency->country_currencies==null)? "" : $currency->country_currencies,
+------------
