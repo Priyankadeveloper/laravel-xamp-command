@@ -44,5 +44,6 @@ https://laravelcollective.com/docs/5.4/html
 ----------------
 terminal cmd
 ------------
- 'currency_code' => empty($currency) ? "" : ($currency->country_currencies==null)? "" : $currency->country_currencies,
+$currencydemo = CountryCode::where('country_code',$restaurants->country_code)->first();
+ 'currency_codedemo' => empty($currencydemo) ? "" : ($currencydemo->country_currencies==null)? "" : $currencydemo->country_currencies,
 ------------
