@@ -1,0 +1,56 @@
+<?php
+
+namespace App\Http\Controllers;
+
+
+use Illuminate\Http\Request;
+use Storage;
+use File;
+use view;
+
+class jsonController extends Controller
+{
+    //
+
+public function bulkdata()
+{
+
+$path = storage_path() . "/json/restaurant.json"; //json file path
+$data = json_encode([
+         'data1' => 'hello',
+         'data2' => 'world' ]);
+
+//$json = json_decode(file_get_contents($data), true);
+	//$data = json_encode(
+  /* $data = json_encode([
+         'data1' => 'hello',
+          'data2' => 'world' ]);*/
+
+
+
+File::append($path,$data);
+
+ //$data = json_encode($json);
+// Storage::put($path,$data);
+}
+
+public function delete()
+{
+
+	File::delete(storage_path() . "/json/addrestautant.json");
+
+
+}
+public function show()
+{
+	$path = storage_path() . "/json/restaurant.json"; 
+    $member = json_decode(file_get_contents($path), true);
+   // dd($json);
+    return view('restaurant',compact('member'));
+
+
+//return view('restaurant');
+
+}
+
+}
