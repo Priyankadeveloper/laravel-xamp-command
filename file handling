@@ -66,17 +66,20 @@ class jsonController extends Controller
 
 	}
 
-	 public function updatedvalue($id)
+	 public function updatedvalue($id,Request $Request)
 	{
-		//print_r($id);die;
 		$path = storage_path() . "/json/restaurant.json"; //file path
 		$currentvalue = json_decode(file_get_contents($path), true);//json to array
-		$currentvaluep = $currentvalue[$id];
-		print_r($currentvaluep);die;
-		/*foreach($currentvalue as $lin) {
-         echo $lin[$id];die;
-       }*/
-		//$data=json_encode($currentvaluep);
+		/*$currentvalue[$id]= Input::get("name");
+		echo "<br/>".$currentvalue[$id];
+		print_r($currentvalue[$id]);die;*/
+		foreach($currentvalue as $key => $value) {
+           $currentvalue[$id]['name'] = Input::get("name");
+          
+        }
+        print_r($currentvalue);die;
+        $data=json_encode($currentvalue);
+       	//$data=json_encode($currentvaluep);
 		File::put($path,$data);
 		//$a=array_replace($currentvalue,$currentvaluep);
 		//print_r($a);die;
@@ -87,6 +90,8 @@ class jsonController extends Controller
 
 
 }
+
+
 ----------------------
 web.php
 ------------------
