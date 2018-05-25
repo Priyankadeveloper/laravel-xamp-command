@@ -190,4 +190,67 @@ restaurantblade
   </table>
   </div>
 </div>
+--------------------------------
+insert blade
+----------------------------------
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Insert Value </h2>
+        <form method="POST" action="/Insert">
+    <!-- <div class="form-group">
+      <label for="email">id</label>
+      <input type="hidden" class="form-control" id="id" value="range(0, 12)" placeholder="Enter Id value " name="id">
+    </div> -->
+    <div class="form-group">
+      <label for="pwd">Name</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
+    </div>
+     <input type="hidden" name="_token" value="{{csrf_token()}}">
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+
+</body>
+</html>
+---------------------
+update blade
+--------------------
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <h2>Update Value </h2>
+        <form method="POST" action="/update/{{$currentvaluep['id']}}">
+                      
+       <div class="form-group">
+      <label for="pwd">Name</label>
+      <input type="text" class="form-control" id="name" value="{{$currentvaluep['name']}}" placeholder="Enter Name" name="name">
+    </div>
+
+     <input type="hidden" name="_token" value="{{csrf_token()}}">
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+
+</body>
+</html>
+
+
 
