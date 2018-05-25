@@ -1,22 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-
-
 use Illuminate\Http\Request;
 use Storage;
 use File;
 use view;
-use App\User;
 use Input;
 
 class jsonController extends Controller
 {
-	public function bulkdata()
+	public function insertvalue()
 	{
 		$path = storage_path() . "/json/restaurant.json";//file path
-		$lines = file($path);//read file
-		$decodedata = json_decode(file_get_contents($path), true);//json to array
+		$decodedata = json_decode(file_get_contents($path), true);//json to array read file
 		$keys = array_keys($decodedata);
         $last = end($keys);
    
@@ -27,6 +23,7 @@ class jsonController extends Controller
 		array_push($decodedata,$data);//merge data
 		$data = json_encode($decodedata);
 		File::put($path,$data);
+		return redirect('show');
 
 	}
 	public function delete($id)
@@ -37,6 +34,7 @@ class jsonController extends Controller
 		unset($decodedata[$id]);
 		$data=json_encode($decodedata);
 		File::put($path,$data);
+		return redirect('show');
 	}
 	public function list()
 	{
@@ -74,12 +72,12 @@ class jsonController extends Controller
 	    }
         $data=json_encode($currentvalue);
        	File::put($path,$data);
+       	return redirect('show');
 			
 	}
 
 
 }
-
 
 
 
