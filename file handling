@@ -29,25 +29,23 @@ class jsonController extends Controller
 		File::put($path,$data);
 
 	}
-
-
 	public function delete($id)
-		{
+	{
 		$path = storage_path() . "/json/restaurant.json";	
 		$decodedata = json_decode(file_get_contents($path), true);
 		//print_r($decodedata['4']);die;
 		unset($decodedata[$id]);
 		$data=json_encode($decodedata);
 		File::put($path,$data);
-		}
+	}
 	public function list()
-	    {
+	{
 
 		$path = storage_path() . "/json/restaurant.json"; //file path
 		$member = json_decode(file_get_contents($path), true);//json to array
 		return view('restaurant',compact('member')); 
 
-	 }
+	}
 
 	public function update($id)
 	{
@@ -55,14 +53,13 @@ class jsonController extends Controller
 		$currentvalue = json_decode(file_get_contents($path), true);//json to array
 		//print_r($currentvalue);die;
 		$currentvaluep = $currentvalue[$id];
-		return view('update',compact('currentvalue'));
+		return view('update',compact('currentvaluep'),compact('id'));
    	}
 
-	 public function insert()
+	public function insert()
 	{
 
 	 	return view('insert');
-
 
 	}
 
@@ -70,26 +67,20 @@ class jsonController extends Controller
 	{
 		$path = storage_path() . "/json/restaurant.json"; //file path
 		$currentvalue = json_decode(file_get_contents($path), true);//json to array
-		/*$currentvalue[$id]= Input::get("name");
-		echo "<br/>".$currentvalue[$id];
-		print_r($currentvalue[$id]);die;*/
-		foreach($currentvalue as $key => $value) {
-           $currentvalue[$id]['name'] = Input::get("name");
-          
-        }
-        print_r($currentvalue);die;
+		foreach($currentvalue as $key => $value)
+		{
+	        $currentvalue[$id]['name'] = Input::get("name");
+	       
+	    }
         $data=json_encode($currentvalue);
-       	//$data=json_encode($currentvaluep);
-		File::put($path,$data);
-		//$a=array_replace($currentvalue,$currentvaluep);
-		//print_r($a);die;
-
-
-	
+       	File::put($path,$data);
+			
 	}
 
 
 }
+
+
 
 
 ----------------------
@@ -235,7 +226,7 @@ update blade
 -----------------------
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -245,17 +236,11 @@ update blade
 <body>
 <div class="container">
   <h2>Update Value </h2>
-
- @foreach($currentvalue as $key=>$user)
-  @endforeach
-
-        <form method="POST" action="/update/{{$key}}">
-                      
+    <form method="POST" action="/update/{{$id}}">
        <div class="form-group">
       <label for="pwd">Name</label>
-      <input type="text" class="form-control" id="name" value="{{$user['name']}}" placeholder="Enter Name" name="name">
+      <input type="text" class="form-control" id="name" value="{{$currentvaluep['name']}}" placeholder="Enter Name" name="name">
     </div>
-
      <input type="hidden" name="_token" value="{{csrf_token()}}">
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
@@ -263,5 +248,6 @@ update blade
 
 </body>
 </html>
+
 
 
