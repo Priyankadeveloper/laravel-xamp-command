@@ -7,50 +7,84 @@ use Illuminate\Http\Request;
 use Storage;
 use File;
 use view;
+use App\User;
+use Input;
 
 class jsonController extends Controller
 {
-    //
+	public function bulkdata()
+	{
+		$path = storage_path() . "/json/restaurant.json";//file path
+		$lines = file($path);//read file
+		$decodedata = json_decode(file_get_contents($path), true);//json to array
+		$keys = array_keys($decodedata);
+        $last = end($keys);
+   
+	    $data = [
+	         'id' => end($keys)+1,
+	         'name' => Input::get("name") ];
+	   
+		array_push($decodedata,$data);//merge data
+		$data = json_encode($decodedata);
+		File::put($path,$data);
 
-public function bulkdata()
-{
-
-$path = storage_path() . "/json/restaurant.json"; //json file path
-$data = json_encode([
-         'data1' => 'hello',
-         'data2' => 'world' ]);
-
-//$json = json_decode(file_get_contents($data), true);
-	//$data = json_encode(
-  /* $data = json_encode([
-         'data1' => 'hello',
-          'data2' => 'world' ]);*/
+	}
 
 
+	public function delete($id)
+		{
+		$path = storage_path() . "/json/restaurant.json";	
+		$decodedata = json_decode(file_get_contents($path), true);
+		//print_r($decodedata['4']);die;
+		unset($decodedata[$id]);
+		$data=json_encode($decodedata);
+		File::put($path,$data);
+		}
+	public function list()
+	    {
 
-File::append($path,$data);
+		$path = storage_path() . "/json/restaurant.json"; //file path
+		$member = json_decode(file_get_contents($path), true);//json to array
+		return view('restaurant',compact('member')); 
 
- //$data = json_encode($json);
-// Storage::put($path,$data);
+	 }
+
+	public function update($id)
+	{
+		$path = storage_path() . "/json/restaurant.json"; //file path
+		$currentvalue = json_decode(file_get_contents($path), true);//json to array
+		//print_r($currentvalue);die;
+		$currentvaluep = $currentvalue[$id];
+		return view('update',compact('currentvalue'));
+   	}
+
+	 public function insert()
+	{
+
+	 	return view('insert');
+
+
+	}
+
+	 public function updatedvalue($id)
+	{
+		//print_r($id);die;
+		$path = storage_path() . "/json/restaurant.json"; //file path
+		$currentvalue = json_decode(file_get_contents($path), true);//json to array
+		$currentvaluep = $currentvalue[$id];
+		print_r($currentvaluep);die;
+		/*foreach($currentvalue as $lin) {
+         echo $lin[$id];die;
+       }*/
+		//$data=json_encode($currentvaluep);
+		File::put($path,$data);
+		//$a=array_replace($currentvalue,$currentvaluep);
+		//print_r($a);die;
+
+
+	
+	}
+
+
 }
 
-public function delete()
-{
-
-	File::delete(storage_path() . "/json/addrestautant.json");
-
-
-}
-public function show()
-{
-	$path = storage_path() . "/json/restaurant.json"; 
-    $member = json_decode(file_get_contents($path), true);
-   // dd($json);
-    return view('restaurant',compact('member'));
-
-
-//return view('restaurant');
-
-}
-
-}
